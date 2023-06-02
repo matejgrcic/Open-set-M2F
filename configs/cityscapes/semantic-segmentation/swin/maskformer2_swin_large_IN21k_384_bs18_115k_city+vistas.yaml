@@ -1,0 +1,31 @@
+_BASE_: ../maskformer2_R50_bs16_90k.yaml
+MODEL:
+  BACKBONE:
+    NAME: "D2SwinTransformer"
+  SWIN:
+    EMBED_DIM: 192
+    DEPTHS: [2, 2, 18, 2]
+    NUM_HEADS: [6, 12, 24, 48]
+    WINDOW_SIZE: 12
+    APE: False
+    DROP_PATH_RATE: 0.3
+    PATCH_NORM: True
+    PRETRAIN_IMG_SIZE: 384
+  WEIGHTS: "swin_large_patch4_window12_384_22k.pkl"
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.120, 57.375]
+  MASK_FORMER:
+    NUM_OBJECT_QUERIES: 100
+
+INPUT:
+  DATASET_MAPPER_NAME: "mask_former_semantic_traffic"
+SOLVER:
+  IMS_PER_BATCH: 12
+  BASE_LR: 0.0001
+  MAX_ITER: 150000
+
+DATASETS:
+  TRAIN: ("cityscapes_fine_sem_seg_train","mapillary_vistas_sem_seg_train")
+  TEST: ("cityscapes_fine_sem_seg_val",)
+
+OUTPUT_DIR: './M2F_SWIN-L_cityscapes+vistas_bs_12_115k'
