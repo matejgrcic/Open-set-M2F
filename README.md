@@ -21,7 +21,7 @@ Similar to Mask2Former repo, see [installation instructions](INSTALL.md).
 Currently supports evaluation on RoadAnomaly and Fishyscapes-val
 
 ```bash
-python train_net.py --config-file  configs/cityscapes/semantic-segmentation/swin/maskformer2_swin_large_IN21k_384_bs12_90k_city+vistas_oe.yaml --eval-only MODEL.WEIGHTS path_to_model DATASETS.TEST eval_dataset_name
+python train_net.py --config-file  configs/cityscapes/semantic-segmentation/swin/maskformer2_swin_large_IN21k_384_bs18_115k_city+vistas.yaml --eval-only MODEL.WEIGHTS path_to_model DATASETS.TEST eval_dataset_name
 ```
 eval_dataset_name can be one of the following:
 - ("fs_static_val", "fs_laf_val", "road_anomaly",)
