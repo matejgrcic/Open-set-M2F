@@ -28,7 +28,7 @@ eval_dataset_name can be one of the following:
 
 ## Pretrained Models
 
-Comming soon..
+Mask2Former with SWIN-L backbone fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
 
 
 ## License
