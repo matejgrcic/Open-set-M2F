@@ -1,7 +1,7 @@
 # On Advantages of Mask-level Recognition for Outlier-aware Segmentation
 
 
-[Matej Grcić]() [Josip Šarić]() [Siniša Šegvić]()
+[Matej Grcić](https://matejgrcic.github.io/) [Josip Šarić](https://jsaric.github.io/) [Siniša Šegvić](https://www.zemris.fer.hr/~ssegvic/index_en.html)
 
 [[`arXiv`](https://arxiv.org/abs/2301.03407)]
 
@@ -26,9 +26,13 @@ python train_net.py --config-file  configs/cityscapes/semantic-segmentation/swin
 eval_dataset_name can be one of the following:
 - ("fs_static_val", "fs_laf_val", "road_anomaly",)
 
-## Pretrained Models
+## Checkpoints
 
-Mask2Former with SWIN-L backbone fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
+Mask2Former with SWIN-L backbone trained on Cityscapes (CS): [weights](https://drive.google.com/file/d/1AaBePz8MQe3NBxMa768yTNuW2I8Tpyv1/view?usp=sharing)
+
+Mask2Former with SWIN-L backbone trained on Cityscapes and Vistas (CS&MV): [weights](https://drive.google.com/file/d/1Ebgr9wc-UivGGiqMPNnYwm1LvGzA3YkR/view?usp=sharing)
+
+Mask2Former with SWIN-L backbone (CS&MV) fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
 
 
 ## License
