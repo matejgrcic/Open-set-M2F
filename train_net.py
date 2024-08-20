@@ -57,6 +57,7 @@ from mask2former import (
     SemanticSegmentorWithTTA,
     add_maskformer2_config,
     DenseOODDetectionEvaluator,
+    DenseOODDetectionEvaluatorUNO,
     MaskFormerSemanticDatasetMapperTrafficWithOE,
     MaskFormerSemanticDatasetMapperTraffic
 )
@@ -93,8 +94,14 @@ class Trainer(DefaultTrainer):
         if evaluator_type == "coco":
             evaluator_list.append(COCOEvaluator(dataset_name, output_dir=output_folder))
 
+        # anomaly segmentation
         if evaluator_type == "ood_detection" and cfg.MODEL.MASK_FORMER.TEST.SEMANTIC_ON:
-            evaluator_list.append(DenseOODDetectionEvaluator(dataset_name, distributed=False, output_dir=output_folder))
+            if cfg.ANOMALY_DETECTOR == "EAM":
+                evaluator_list.append(DenseOODDetectionEvaluator(dataset_name, distributed=False, output_dir=output_folder))
+                
+            if cfg.ANOMALY_DETECTOR == "UNO":
+                evaluator_list.append(DenseOODDetectionEvaluatorUNO(dataset_name, distributed=False, output_dir=output_folder))    
+        
         # panoptic segmentation
         if evaluator_type in [
             "coco_panoptic_seg",

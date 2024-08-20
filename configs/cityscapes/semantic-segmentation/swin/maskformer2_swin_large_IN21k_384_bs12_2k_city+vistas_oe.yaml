@@ -34,4 +34,6 @@ DATASETS:
   TRAIN: ("cityscapes_fine_sem_seg_train","mapillary_vistas_sem_seg_train")
   TEST: ("cityscapes_fine_sem_seg_val",)
 
+ANOMALY_DETECTOR: "EAM" 
+
 OUTPUT_DIR: './M2F_SWIN-L_cityscapes+vistas_bs_12_2k_oe'

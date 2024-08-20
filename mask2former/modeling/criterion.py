@@ -189,6 +189,35 @@ class SetCriterion(nn.Module):
         del target_masks
         return losses
 
+    def loss_jsd(self, outputs, targets, indices, num_masks):
+        assert "pred_logits" in outputs
+        src_logits = outputs["pred_logits"].float()
+
+        idx = self._get_src_permutation_idx(indices)
+        target_classes_o = torch.cat([t["labels"][J] for t, (_, J) in zip(targets, indices)])
+        target_classes = torch.full(
+            src_logits.shape[:2], self.num_classes+1, dtype=torch.int64, device=src_logits.device
+        )
+        target_classes[idx] = target_classes_o
+
+        ood_targets = torch.zeros_like(target_classes, device=src_logits.device)
+        ood_targets[target_classes==19] = 1
+        ood_targets = ood_targets.unsqueeze(-1).repeat(1, 1, self.num_classes-1)
+
+        if ood_targets[ood_targets == 1].numel() > 0:
+            cls_out = F.log_softmax(src_logits, dim=1)[..., :(self.num_classes-1)]
+            uniform_dist = torch.ones_like(cls_out) * 1 / (self.num_classes-1)
+            m = (cls_out.exp() + uniform_dist) / 2.
+            kl_p_m = (F.kl_div(m.log(), cls_out, log_target=True, reduction='none') * ood_targets).sum()
+            kl_u_m = (F.kl_div(m.log(), uniform_dist, reduction='none') * ood_targets).sum()
+            loss_jsd = (0.5 * kl_p_m + 0.5 * kl_u_m) / target_classes[target_classes == 19].numel()
+        else:
+            loss_jsd = torch.tensor(0.0)
+
+        losses = {"loss_jsd": loss_jsd}
+        return losses
+
+
     def _get_src_permutation_idx(self, indices):
         # permute predictions following indices
         batch_idx = torch.cat([torch.full_like(src, i) for i, (src, _) in enumerate(indices)])
@@ -205,6 +234,7 @@ class SetCriterion(nn.Module):
         loss_map = {
             'labels': self.loss_labels,
             'masks': self.loss_masks,
+            'jsd': self.loss_jsd
         }
         assert loss in loss_map, f"do you really want to compute {loss} loss?"
         return loss_map[loss](outputs, targets, indices, num_masks)

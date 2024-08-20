@@ -211,7 +211,8 @@ class MaskFormerSemanticDatasetMapperTraffic:
         mode = "training" if is_train else "inference"
         logger.info(f"[{self.__class__.__name__}] Augmentations used in {mode}: {augmentations}")
 
-        self.vistas_mapper = create_vistas_to_cityscapes_mapper('datasets/mapillary_vistas')
+        self.vistas_mapper = create_vistas_to_cityscapes_mapper('./datasets/mapillary-vistas')
+
         self.wilddash_mapper = create_wilddash_to_cityscapes_mapper()
 
     @classmethod

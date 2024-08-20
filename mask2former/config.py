@@ -35,6 +35,7 @@ def add_maskformer2_config(cfg):
     cfg.MODEL.MASK_FORMER.CLASS_WEIGHT = 1.0
     cfg.MODEL.MASK_FORMER.DICE_WEIGHT = 1.0
     cfg.MODEL.MASK_FORMER.MASK_WEIGHT = 20.0
+    cfg.MODEL.MASK_FORMER.JSD_WEIGHT = 0.03
 
     # transformer config
     cfg.MODEL.MASK_FORMER.NHEADS = 8
@@ -112,3 +113,6 @@ def add_maskformer2_config(cfg):
     # Importance sampling parameter for PointRend point sampling during training. Parametr `beta` in
     # the original paper.
     cfg.MODEL.MASK_FORMER.IMPORTANCE_SAMPLE_RATIO = 0.75
+    
+    cfg.ANOMALY_DETECTOR = "UNO" # "UNO" or "EAM"
+    
