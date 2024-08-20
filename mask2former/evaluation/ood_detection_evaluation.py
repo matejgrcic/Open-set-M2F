@@ -156,7 +156,7 @@ class DenseOODDetectionEvaluator(DatasetEvaluator):
             v = (mask_pred * s_x.view(-1, 1, 1)).sum(0)
             ood_score = 1 - v.to(self._cpu_device)
             gt_filename = self.input_file_to_gt_file[input["file_name"]]
-            gt = self.sem_seg_loading_fn(gt_filename, dtype=np.int)
+            gt = self.sem_seg_loading_fn(gt_filename, dtype=np.int64)
             gt_vec = torch.from_numpy(gt).view(-1)
 
 
