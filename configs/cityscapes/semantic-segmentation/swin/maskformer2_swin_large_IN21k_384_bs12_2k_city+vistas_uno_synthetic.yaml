@@ -42,5 +42,4 @@ DATASETS:
 
 ANOMALY_DETECTOR: "UNO" 
 
-OUTPUT_DIR: './M2F_SWIN-L_cityscapes+vistas_bs_12_2k_uno'
-
+OUTPUT_DIR: './M2F_SWIN-L_cityscapes+vistas_bs_12_2k_uno_synthetic'

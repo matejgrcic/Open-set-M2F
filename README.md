@@ -1,17 +1,21 @@
-Open-set Semantic Segmentation Built of Top of Mask2Former
+Open-set Semantic Segmentation Built  atop Mask-level Recognition
 ==========================================================
 
 This repository provides the official implementation of our recent papers:
 
 ### :scroll: UNO: Outlier detection by ensembling uncertainty with negative objectness
 
-[Anja Delić](), [Matej Grcić](https://matejgrcic.github.io/), [Siniša Šegvić](https://www.zemris.fer.hr/~ssegvic/index_en.html)
+[Anja Delić](https://github.com/adelic99), [Matej Grcić](https://matejgrcic.github.io/), [Siniša Šegvić](https://www.zemris.fer.hr/~ssegvic/index_en.html)
+
+Published in BMVC 2024
 
 [[`arXiv`](https://arxiv.org/abs/2402.15374)]
 
 ### :scroll: **EAM**: On Advantages of Mask-level Recognition for Outlier-aware Segmentation
 
 [Matej Grcić](https://matejgrcic.github.io/), [Josip Šarić](https://jsaric.github.io/), [Siniša Šegvić](https://www.zemris.fer.hr/~ssegvic/index_en.html)
+
+Published in CVPR workshop (VAND) 2023
 
 [[`arXiv`](https://arxiv.org/abs/2301.03407)]
 
@@ -64,10 +68,10 @@ Mask2Former with SWIN-L backbone trained on Cityscapes and Vistas (CS&MV): [weig
 Mask2Former with SWIN-L backbone (CS&MV) fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
 
 ### UNO
-Mask2Former with SWIN-L backbone (CS&MV) with K+2 classes fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
+Mask2Former with SWIN-L backbone (CS&MV) with K+2 classes fine-tuned with ADE20k negatives: [weights](https://drive.google.com/file/d/1ablD-t34MXcP-oSSzSq0-TNz0AxKtp_m/view?usp=sharing)
 
-Mask2Former with SWIN-L backbone (CS&MV) with K+2 classes fine-tuned with synthetic negatives: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing) <br>
-DenseFlow pretrained on CS&MV: [weights](https://drive.google.com/file/d/1u5s10ZhYNR50M5lqW4bjriHdfDMe1xH-/view?usp=sharing)
+Mask2Former with SWIN-L backbone (CS&MV) with K+2 classes fine-tuned with synthetic negatives: [weights](https://drive.google.com/file/d/108CHRZFWTnDBonQv2yRjRL3JNj4_y47E/view?usp=sharing) <br>
+DenseFlow pretrained on CS&MV: [weights](https://drive.google.com/file/d/1vS7K2irT2Gxh_8UQ9Aw1X5t5l6tG0Eol/view?usp=sharing)
 
 
 
@@ -85,6 +89,12 @@ However portions of the project are available under separate license terms: Swin
 
 
 ```BibTeX
+@inproceedings{delic24bmvc,
+  title={Outlier detection by ensembling uncertainty with negative objectness},
+  author={Anja Delić and Matej Grcic and Siniša Šegvić}
+  journal={BMVC 2024 British Machine Vision Conference},
+  year={2024}
+}
 @inproceedings{grcic23cvprw,
   title={On Advantages of Mask-level Recognition for Outlier-aware Segmentation},
   author={Matej Grcic and Josip Šarić and Siniša Šegvić}

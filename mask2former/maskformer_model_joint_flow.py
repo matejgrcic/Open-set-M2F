@@ -95,7 +95,7 @@ class MaskFormerJointFlow(nn.Module):
             assert self.sem_seg_postprocess_before_inference
 
         self.flow = DenseFlow().to(self.device)
-        self.flow.load_state_dict(torch.load("/home/adelic/vistas_flow_cp.pt")['model'])
+        self.flow.load_state_dict(torch.load("./checkpoints/vistas_flow_cp.pt")['model'])
 
 
         
