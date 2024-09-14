@@ -11,6 +11,9 @@ Published in BMVC 2024
 
 [[`arXiv`](https://arxiv.org/abs/2402.15374)]
 
+### :bulb: **UNO-SAM Anomaly Tracker**
+We have extended UNO for anomaly tracking. Find more details [here](UNO_SAM_tracker.md).
+
 ### :scroll: **EAM**: On Advantages of Mask-level Recognition for Outlier-aware Segmentation
 
 [Matej Grcić](https://matejgrcic.github.io/), [Josip Šarić](https://jsaric.github.io/), [Siniša Šegvić](https://www.zemris.fer.hr/~ssegvic/index_en.html)
